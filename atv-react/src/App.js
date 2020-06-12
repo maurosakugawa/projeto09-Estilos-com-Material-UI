@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Box } from '@material-ui/core';
 import Formulario from './Formulario';
+import { withStyles } from '@material-ui/core/styles';
 
 
 
-export default class App extends React.Component {
+
+export default class App extends Component {
   render () {
-    return (
-      <div>
-        <Formulario />
 
-      </div>
+    return (
+      <Box  display={{ sm: "block"}} flexDirection="row" flexWrap="wrap" width="100%" >
+        <Formulario />
+      </Box>
     );
   }
 }
