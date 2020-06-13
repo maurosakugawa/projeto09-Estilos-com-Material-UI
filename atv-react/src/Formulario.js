@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Card, MuiThemeProvider } from '@material-ui/core';
-import { Box, FormControl, Input, InputLabel, Select, Container, Grid, Paper } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableHead, TableRow} from '@material-ui/core';
+import { FormControl, Input, Container } from '@material-ui/core';
 
 
 
@@ -12,7 +12,16 @@ const styles = theme => ({
             margin: theme.spacing(1),
             width: '25ch'
         },
-    }
+    },
+
+
+    '@global':{
+    select: {
+        outline: 'none',
+        minWidth: 200,
+      //  margin: 100,
+    },
+}
 });
 
 
@@ -223,10 +232,10 @@ class Formulario extends React.Component {
         return (
             <div className={classes.body}>
                 <Container maxWidth="md">
-                    <FormControl onSubmit={this.fetchCidades} >
+                    <FormControl onSubmit={this.fetchCidades} m={2} >
                         <form className={classes.root} noValidate autoComplete="off">
                             <Input placeholder="Selecione uma cidade" value={this.state.value} onChange={this.fetchCidades} />
-                            <select onChange={this.fetchClima}>
+                            <select onChange={this.fetchClima} >
                                 {cidades}
                             </select>
                             <div>
@@ -237,30 +246,30 @@ class Formulario extends React.Component {
                     <Table className={classes.table}>
                         <TableHead>
                             <TableRow>
-                                <th className="text-center" colSpan="5">
+                                <TableCell align="center" colSpan="5">
                                     {cidade}
-                                </th>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <th>Dia</th>
+                                <TableCell>Dia</TableCell>
                                 {listdia}
                             </TableRow>
                             <TableRow>
-                                <th>Condições do tempo</th>
+                                <TableCell>Condições do tempo</TableCell>
                                 {listPrevisao}
                             </TableRow>
                             <TableRow>
-                                <th>Temp. máxima</th>
+                                <TableCell>Temp. máxima</TableCell>
                                 {listMaxima}
                             </TableRow>
                             <TableRow>
-                                <th>Temp. mínima</th>
+                                <TableCell>Temp. mínima</TableCell>
                                 {listMinima}
                             </TableRow>
                             <TableRow>
-                                <th>Índice ultravioleta</th>
+                                <TableCell>Índice ultravioleta</TableCell>
                                 {listUV}
                             </TableRow>
                         </TableBody>
